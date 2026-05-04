@@ -10,14 +10,9 @@
 <body>
 
   <header>
-    <div class="logo-wrap">🤖</div>
     <div class="header-text">
       <h1>PRIMOS ZAPBOT</h1>
       <p>SISTEMA DE AUTOMAÇÃO PRIVADA</p>
-    </div>
-    <div class="header-status">
-      <div class="status-dot" id="status-dot"></div>
-      <span id="status-text">INATIVO</span>
     </div>
   </header>
 
@@ -53,11 +48,10 @@
               <div class="cadencia-value" id="cadencia-val">45</div>
               <div class="cadencia-unit">SEG / DISPARO</div>
             </div>
-            <div class="range-track">
-              <div class="range-fill" id="range-fill" style="width:40%"></div>
+            <div class="slider-wrap">
               <input type="range" min="10" max="120" value="45" id="cadencia-range" oninput="updateCadencia(this.value)"/>
             </div>
-            <div class="cadencia-hint">ATRÁS DO ATIVO: <span id="cadencia-label">45</span>SEG</div>
+            <div class="cadencia-hint">INTERVALO ENTRE DISPAROS: <span id="cadencia-label">45</span> SEG</div>
           </div>
 
           <div class="action-row">

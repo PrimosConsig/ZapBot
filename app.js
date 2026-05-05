@@ -24,7 +24,7 @@ for (var i = 0; i < tabs.length; i++) {
 
 /* ── SLIDER ── */
 function updateSliderColor(val) {
-  var min = 10, max = 120;
+  var min = 35, max = 210;
   var pct = ((val - min) / (max - min)) * 100;
   document.getElementById('cadencia-range').style.background =
     'linear-gradient(to right, #c8a84b ' + pct + '%, #2a2510 ' + pct + '%)';

@@ -1,82 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PRIMOS ZAPBOT</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Share+Tech+Mono&family=Exo+2:wght@300;400;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Share+Tech+Mono&family=Exo+2:wght@400;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <header>
-    <div class="header-text">
-      <h1>PRIMOS ZAPBOT</h1>
-      <p>SISTEMA DE AUTOMAÇÃO PRIVADA</p>
-    </div>
-  </header>
+<header>
+  <div class="header-text">
+    <h1>PRIMOS ZAPBOT</h1>
+    <p>SISTEMA DE AUTOMAÇÃO PRIVADA</p>
+  </div>
+</header>
 
-  <nav class="tabs">
-    <div class="tab active" data-tab="disparador">🚀 &nbsp;DISPARADOR</div>
-    <div class="tab" data-tab="historico">📋 &nbsp;HISTÓRICO</div>
-  </nav>
+<nav class="tabs">
+  <div class="tab active" data-tab="disparador">🚀 &nbsp;DISPARADOR</div>
+  <div class="tab" data-tab="historico">📋 &nbsp;HISTÓRICO</div>
+</nav>
 
-  <main>
+<main>
 
-    <!-- ABA DISPARADOR -->
-    <div id="tab-disparador" class="tab-content active">
-      <div class="grid-2">
+  <div id="tab-disparador" class="tab-content active">
+    <div class="grid-2">
 
-        <div class="col-left">
-          <div class="section-label">IMPORTAÇÃO DE LEADS</div>
-
-          <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()">
-            <div class="upload-icon">📊</div>
-            <div class="upload-info">
-              <div id="upload-placeholder" class="placeholder">Clique para importar contatos.xlsx</div>
-              <div id="upload-filename" class="filename" style="display:none"></div>
-              <div id="upload-size" class="filesize" style="display:none"></div>
-            </div>
-            <div id="upload-remove" class="upload-remove" style="display:none" onclick="removeFile(event)">✕</div>
-            <div id="upload-add" class="upload-btn-add">＋</div>
+      <div class="col-left">
+        <div class="section-label">IMPORTAÇÃO DE LEADS</div>
+        <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()">
+          <div class="upload-icon">📊</div>
+          <div class="upload-info">
+            <div id="upload-placeholder" class="placeholder">Clique para importar contatos.xlsx</div>
+            <div id="upload-filename" class="filename" style="display:none"></div>
+            <div id="upload-size" class="filesize" style="display:none"></div>
           </div>
-          <input type="file" id="file-input" accept=".xlsx,.xls,.csv" onchange="handleFile(event)"/>
+          <div id="upload-remove" class="upload-remove" style="display:none" onclick="removeFile(event)">✕</div>
+          <div id="upload-add" class="upload-btn-add">＋</div>
+        </div>
+        <input type="file" id="file-input" accept=".xlsx,.xls,.csv"/>
 
-          <div class="cadencia-block">
-            <div class="section-label">CADÊNCIA TÉCNICA</div>
-            <div class="cadencia-display">
-              <div class="cadencia-value" id="cadencia-val">45</div>
-              <div class="cadencia-unit">SEG / DISPARO</div>
-            </div>
-            <div class="slider-wrap">
-              <input type="range" min="10" max="120" value="45" id="cadencia-range" oninput="updateCadencia(this.value)"/>
-            </div>
-            <div class="cadencia-hint">INTERVALO ENTRE DISPAROS: <span id="cadencia-label">45</span> SEG</div>
+        <div class="cadencia-block">
+          <div class="section-label">CADÊNCIA TÉCNICA</div>
+          <div class="cadencia-display">
+            <div class="cadencia-value" id="cadencia-val">45</div>
+            <div class="cadencia-unit">SEG / DISPARO</div>
           </div>
-
-          <div class="action-row">
-            <button class="btn-iniciar" id="btn-iniciar" onclick="iniciarOperacao()">INICIAR OPERAÇÃO</button>
-            <button class="btn-parar" id="btn-parar" onclick="pararOperacao()">PARAR</button>
+          <div class="slider-wrap">
+            <input type="range" min="10" max="120" value="45" id="cadencia-range"/>
           </div>
+          <div class="cadencia-hint">INTERVALO ENTRE DISPAROS: <span id="cadencia-label">45</span> SEG</div>
+        </div>
 
-          <div class="progress-block" id="progress-block">
-            <div class="progress-label">
-              <span id="prog-label">DISPARANDO...</span>
-              <span id="prog-count">0 / 0</span>
-            </div>
-            <div class="progress-bar-outer">
-              <div class="progress-bar-inner" id="prog-bar"></div>
-            </div>
+        <div class="action-row">
+          <button class="btn-iniciar" id="btn-iniciar">INICIAR OPERAÇÃO</button>
+          <button class="btn-parar" id="btn-parar">PARAR</button>
+        </div>
+
+        <div class="progress-block" id="progress-block">
+          <div class="progress-label">
+            <span id="prog-label">DISPARANDO...</span>
+            <span id="prog-count">0 / 0</span>
           </div>
-
-          <div class="log-block" id="log-block">
-            <div id="log-entries"></div>
+          <div class="progress-bar-outer">
+            <div class="progress-bar-inner" id="prog-bar"></div>
           </div>
         </div>
 
-        <div class="col-right">
-          <div class="section-label">CONFIGURAÇÃO DA MENSAGEM</div>
-          <textarea class="msg-textarea" id="frases-input" placeholder="Uma mensagem por linha. Use {nome} para personalizar.">Olá, {nome}!
+        <div class="log-block" id="log-block">
+          <div id="log-entries"></div>
+        </div>
+      </div>
+
+      <div class="col-right">
+        <div class="section-label">CONFIGURAÇÃO DA MENSAGEM</div>
+        <textarea class="msg-textarea" id="frases-input">Olá, {nome}!
 Oi {nome}, tudo certo?
 Olá {nome}, tudo bem?
 {nome}, tudo bem?
@@ -87,38 +85,37 @@ Oi, {nome}, é você?
 {nome}, tudo certo?
 Oi, falo com {nome}?
 {nome}, tem um minutinho?</textarea>
-          <div class="msg-hint">Use <span>{nome}</span> para personalizar. Uma frase por linha — sorteada aleatoriamente.</div>
+        <div class="msg-hint">Use <span>{nome}</span> para personalizar. Uma frase por linha — sorteada aleatoriamente.</div>
 
-          <div class="stats-row">
-            <div class="stat-box">
-              <div class="stat-val green" id="stat-env">0</div>
-              <div class="stat-lbl">ENVIADOS</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-val red" id="stat-err">0</div>
-              <div class="stat-lbl">ERROS</div>
-            </div>
-            <div class="stat-box">
-              <div class="stat-val amber" id="stat-inv">0</div>
-              <div class="stat-lbl">INVÁLIDOS</div>
-            </div>
+        <div class="stats-row">
+          <div class="stat-box">
+            <div class="stat-val green" id="stat-env">0</div>
+            <div class="stat-lbl">ENVIADOS</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val red" id="stat-err">0</div>
+            <div class="stat-lbl">ERROS</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val amber" id="stat-inv">0</div>
+            <div class="stat-lbl">INVÁLIDOS</div>
           </div>
         </div>
-
       </div>
+
     </div>
+  </div>
 
-    <!-- ABA HISTÓRICO -->
-    <div id="tab-historico" class="tab-content">
-      <div class="section-label">HISTÓRICO DE DISPAROS</div>
-      <div id="hist-container">
-        <div class="empty-hist">// NENHUM DISPARO REGISTRADO AINDA</div>
-      </div>
+  <div id="tab-historico" class="tab-content">
+    <div class="section-label">HISTÓRICO DE DISPAROS</div>
+    <div id="hist-container">
+      <div class="empty-hist">// NENHUM DISPARO REGISTRADO AINDA</div>
     </div>
+  </div>
 
-  </main>
+</main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <script src="app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
